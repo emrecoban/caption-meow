@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    /*font-family: 'Raleway', sans-serif;*/
+}
+
+a {
+    text-decoration: none;
+    color:#3E7FFA;
+}
+
+a:hover {
+    color:#db8c38;
+}
+
+
+/* COMPONENTS */
+/* Header Component */
+
+header{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding:0 15px;
+    height: 70px;
+    width: 100%;
+    gap: 10px;
+    -webkit-box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.18);
+    -moz-box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.18);
+    box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.18);
+}
+
+@media screen and (max-width: 530px) {
+    header{
+        justify-content: center;
+        height: auto;
+        padding:15px 15px;
+    }
+}
+
+header > h3 {
+    color:#db8c38;
+}
+
+header > nav {
+    display: flex;
+    margin-left:20px;
+    gap: 20px;
+}
+
+
+/* PAGES */
+/* Login Page */
+.loginPage{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.loginPage > .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:15px;
+    max-width: 400px;
+    
+}
+
+.loginPage > .container > .loginLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #AEE1FF;
+    margin-top:15px;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+}
+
+.loginPage > .container input{
+    width: 100%;
+    height: 40px;
+    padding:0 20px;
+    margin:10px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.loginPage > .container input:focus{
+    outline: 1px solid #db8c38;
+}
+
+.loginPage > .container button{
+    width: 100%;
+    height: 40px;
+    padding:0 20px;
+    margin:10px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: #AEE1FF;
+    font-size:16px;
+}
+
+.loginPage > .container button:hover{
+    cursor: pointer;
+}
+
+.loginPage > .container button:active{
+    -webkit-box-shadow: inset 1px 1px 6px #848383;
+    -moz-box-shadow: inset 1px 1px 6px #848383;
+     box-shadow: inset 1px 1px 6px #848383;
+}
+
+.loginPage > .container button:disabled{
+    background-color: #ccc;
+}
