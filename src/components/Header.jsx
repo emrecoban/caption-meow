@@ -1,39 +1,36 @@
 import React from "react";
-import { Link, useNavigate } from 'react-router-dom';
-import { userControl, auth } from '../api/firebase'; 
+import { Link } from 'react-router-dom';
 import { signOut } from "firebase/auth";
-import { AuthContext } from "./Layout";
+import { auth } from '../services/firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 export default function Header(){
-    const {authControl, setAuthControl} = React.useContext(AuthContext)
-    const navigate = useNavigate()
+    const [user, loading, error] = useAuthState(auth);
 
-    React.useEffect(()=>{
-        userControl().then(verify=>setAuthControl(prevState=>{
-            return {...prevState, loggedIn: verify}
-        }))
-    },[])
+    console.log("user geldi: ", user)
 
-    console.log("güncel authControl => ", authControl)
+    const logout = () => {
+        signOut(auth);
+      };
 
-    function logOut(){
-        signOut(auth)
-        .then(()=>{
-          navigate('/')
-          setAuthControl({
-            user: null,
-            loggedIn: false
-          })
-        })
-        .catch((error)=>{
-          throw {
-              message: "Failed to log-out the system",
-              errorMessage: error.message,
-              errorCode: error.code
-          }
-        })
-      }
-
+    const loginControl = ()=> {
+        if(loading){
+            return "..."
+        }
+        if(error){
+            console.log("useAuthState (react-firebase-hooks) gelen hata => ", error)
+            return ""
+        }
+        if(user){
+            return (
+                <>
+                    <Link to="/dashboard">⚙️ Settings</Link>
+                    <Link onClick={logout}>🔐 Logout</Link>
+                </>
+            )
+        }
+        return <Link to="/login">🔐 Log-in</Link>
+    }
     return (
         <header>
             <img src="/images/cat.svg" height="40" />
@@ -42,10 +39,9 @@ export default function Header(){
                 <Link to="/">🚀 Today's Cat</Link>
                 <Link to="">🏆 Top Ten</Link>
                 {
-                    authControl.loggedIn 
-                    ?<Link onClick={logOut}>🔐 Logout</Link>
-                    :<Link to="/login">🔐 Log-in</Link>
+                    loginControl()
                 }
+                
             </nav>
         </header>
     )

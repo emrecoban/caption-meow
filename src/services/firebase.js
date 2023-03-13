@@ -1,16 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { 
-  getAuth, 
-  signInWithEmailAndPassword, 
-  onAuthStateChanged,
-  createUserWithEmailAndPassword
-} from "firebase/auth";
-
-import { 
-  getFirestore,
-  collection,
-  getDocs 
-} from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBqLD83kRrJvVCF6BfLlVXFxiBkYYnrZK4",
@@ -22,9 +12,10 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-
-/* USERS/AUTH */
 export const auth = getAuth(app);
+export const db = getFirestore(app);
+/* 
+
 
 export async function signIn(email, pass){
   try {
@@ -67,7 +58,7 @@ export async function signUp(email, pass){
 }
 
 
-/* DATABASE */
+
 const db = getFirestore(app);
 
 export async function getAllCats(){
@@ -82,3 +73,4 @@ export async function getAllCats(){
   })
   return cat
 }
+ */

@@ -7,26 +7,44 @@ import {
   Route
 } from 'react-router-dom';
 import Layout from './components/Layout';
-import ProtectedRoute from './components/ProtectedRoute';
 import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
 import Login, {action as loginAction} from './pages/Login';
 import Signup, {action as signupAction} from './pages/Signup';
+import { AuthProvider } from './context/AuthProvider';
+import { AfterLoginProvider } from './context/AfterLoginProvider';
+
 
 const mainRouter = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<Layout/>}>
       <Route index element={<Home />}/>
-      <Route element={<ProtectedRoute />}>
+      
+        <Route 
+          path='dashboard' 
+          element={
+          <AuthProvider>
+            <Dashboard />
+          </AuthProvider>
+        }/>
+      
           <Route 
                 path='login' 
-                element={<Login />}
+                element={
+                <AfterLoginProvider>
+                  <Login />
+                </AfterLoginProvider>
+                }
                 action={loginAction}
           />
           <Route 
                 path='signup' 
-                element={<Signup />} 
+                element={
+                  <AfterLoginProvider>
+                    <Signup />
+                  </AfterLoginProvider>
+                } 
                 action={signupAction}      
           />
-      </Route>
   </Route>
 ))
 

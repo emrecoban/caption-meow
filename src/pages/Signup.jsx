@@ -1,5 +1,4 @@
 import React from "react";
-import { signUp } from "../api/firebase";
 import { 
     Form, 
     Link, 
@@ -7,15 +6,16 @@ import {
     useNavigation,
     useNavigate 
 } from 'react-router-dom';
+import { registerUser } from "../services/users";
 
 export async function action({request}){
     const formData = await request.formData()
     const email = formData.get("email")
-    const pass = formData.get("password")
+    const password = formData.get("password")
 
     try {
-        const user = await signUp(email, pass)
-        return user
+        const signUpResponse = await registerUser({email, password})
+        return signUpResponse
     } catch (error) {
         return {
             error: error.message
@@ -29,8 +29,13 @@ export default function Signup(){
     const navigate = useNavigate()
 
     React.useEffect(()=>{
-        if (actionData?.accessToken) {
-            navigate('/login', { replace: true, state: {register: true} })
+        if(actionData?.accessToken) {
+            navigate('/login', { 
+                replace: true,
+                state: { 
+                    register: true
+                }
+             })
         }
     }, [actionData])
 
@@ -42,7 +47,7 @@ export default function Signup(){
                 </div>
                 <h2>Sign-up</h2>
                 {
-                    actionData?.error && <h3 style={{color:'red'}}>Error: {actionData.error}</h3>
+                    actionData?.error && <h3 style={{color:'red'}}>{actionData.error}</h3>
                 }
                 <Form method="post" action="/signup">
                     <label htmlFor="email">

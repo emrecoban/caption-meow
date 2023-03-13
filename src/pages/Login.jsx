@@ -7,8 +7,8 @@ import {
     useNavigate,
     useLocation
  } from 'react-router-dom';
- import { signIn } from '../api/firebase';
- import { AuthContext } from "../components/Layout";
+import { loginUser } from "../services/users";
+
 
 export async function action({request}){
     const formData = await request.formData()
@@ -16,8 +16,8 @@ export async function action({request}){
     const password = formData.get("password")
 
     try {
-        const user = await signIn(email, password)
-        return user
+        const logInResponse = await loginUser({email, password})
+        return logInResponse
     } catch (error) {
         return {
             error: error.message
@@ -26,7 +26,6 @@ export async function action({request}){
 }
 
 export default function Login(){
-    const {setAuthControl} = React.useContext(AuthContext)
     const location = useLocation() // geldiği sayfayı yakala.
     const navigate = useNavigate() // sayfayı yönlendir.
     const navigation = useNavigation() // mevut durumu yakala. submitting...
@@ -35,12 +34,10 @@ export default function Login(){
     const userFrom = location.state?.from || "/"
 
     React.useEffect(()=>{
-        if (actionData?.accessToken) {
-            setAuthControl({
-                user: actionData,
-                loggedIn: true
+        if (actionData?.accessToken){
+            navigate(userFrom, {
+                replace: true
             })
-            navigate(userFrom, { replace: true })
         }
     }, [actionData])
 
@@ -52,7 +49,7 @@ export default function Login(){
                 </div>
                 <h2>Log-in</h2>
                 {
-                    actionData?.error && <h3 style={{color:'red'}}>Error: {actionData.error}</h3>
+                    actionData?.error && <h3 style={{color:'red'}}>{actionData.error}</h3>
                 }
                 {
                     location.state?.register && 
