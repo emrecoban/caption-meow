@@ -3,7 +3,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../services/firebase";
 import { useNavigate } from "react-router-dom";
 
-const AuthContext = React.createContext({
+export const AuthContext = React.createContext({
     user: null,
     signOut: () => {}
 })

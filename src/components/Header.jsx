@@ -24,7 +24,7 @@ export default function Header(){
         if(user){
             return (
                 <>
-                    <Link to="/dashboard">⚙️ Settings</Link>
+                    <Link to="/settings">⚙️ Settings</Link>
                     <Link onClick={logout}>🔐 Logout</Link>
                 </>
             )
