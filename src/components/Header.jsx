@@ -7,15 +7,13 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 export default function Header(){
     const [user, loading, error] = useAuthState(auth);
 
-    console.log("user geldi: ", user)
-
     const logout = () => {
         signOut(auth);
       };
 
     const loginControl = ()=> {
         if(loading){
-            return "..."
+            return <div className="loader"></div>
         }
         if(error){
             console.log("useAuthState (react-firebase-hooks) gelen hata => ", error)
