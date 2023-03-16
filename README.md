@@ -9,11 +9,9 @@ Caption Meow can be used through the website address [captionmeow.vercel.app](ht
  - [x] Firebase Firestore
  - [x] Others...
  - [ ] Others...
- 
+
 ## Screenshots
-<p align="center">
 Coming soon...
-</p>
 
 ## Support
 - Give a star to this repo.
