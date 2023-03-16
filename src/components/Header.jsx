@@ -32,7 +32,7 @@ export default function Header(){
     return (
         <header>
             <img src="/images/cat.svg" height="40" />
-            <h3>Caption Cat</h3>
+            <h3>Caption Meow</h3>
             <nav>
                 <Link to="/">🚀 Today's Cat</Link>
                 <Link to="">🏆 Top Ten</Link>

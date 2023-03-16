@@ -5,16 +5,18 @@ import {
     collection,
     query,
     where,
-    getDocs 
+    getDocs, 
+    updateDoc,
+    increment
 } from "firebase/firestore"; 
 
 export async function addComment(uId, comment, catId){
     const newCommRef = doc(collection(db, "comments"));
     const addResponse = await setDoc(newCommRef, {
+        uId: doc(db, "users", uId),
         catRef: doc(db, "cats", catId),
         comment: comment,
         commentScore: 1,
-        uId: uId 
     });
     return addResponse
 }
@@ -27,4 +29,10 @@ export async function getComments(catId){
     )
     const querySnapshot = await getDocs(q)
     return querySnapshot
+}
+
+export async function commentScore(commId){
+    await updateDoc(doc(db, "comments", commId), {
+        commentScore: increment(1),
+    })
 }

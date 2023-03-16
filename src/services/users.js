@@ -1,4 +1,6 @@
 import { auth } from "./firebase";
+import { db } from "./firebase";
+
 import { 
     createUserWithEmailAndPassword, 
     signInWithEmailAndPassword,
@@ -6,6 +8,11 @@ import {
     reauthenticateWithCredential,
     EmailAuthProvider
 } from "firebase/auth";
+import { 
+    doc, 
+    setDoc,
+    updateDoc 
+} from "firebase/firestore";
 
 
 export async function loginUser({email, password}){
@@ -16,8 +23,14 @@ export async function loginUser({email, password}){
 export async function registerUser({email, password}){
     const userCredential = await createUserWithEmailAndPassword(auth, email, password)
     if(userCredential.user){
+        const splitEmail = email.split('@')[0]
         await updateProfile(auth.currentUser, {
-            displayName: email.split('@')[0]
+            displayName: splitEmail
+        })
+        await setDoc(doc(db, "users", auth.currentUser.uid), {
+            displayName: splitEmail,
+            email: email,
+            score: 0,
         })
     }
     return userCredential.user
@@ -30,6 +43,14 @@ export async function reAuth(currPass){
     )
     const reLogin = reauthenticateWithCredential(auth.currentUser, credential)
     return reLogin
+}
+
+export async function userDBUpdate(name){
+    const update = await updateDoc(
+        doc(db, "users", auth.currentUser.uid), 
+        { displayName: name }
+    )
+    return true
 }
 
 /* export async function updateUser({displayName}){

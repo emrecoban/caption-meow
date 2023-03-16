@@ -51,7 +51,7 @@ export default function Home(){
         setCommentsEl([])
         const commentsCat = await getComments(todaysCat.Id)
         commentsCat.forEach(comment=>{
-            comment.data().uId === user.uid && setcommentControl(false)
+            comment.data().uId.id === user?.uid && setcommentControl(false)
             setComments(prevComments=>{
                 const newComment = {
                     Id: comment.id,
@@ -74,8 +74,11 @@ export default function Home(){
 
     React.useEffect(()=>{
         console.log("state geldi=> ", comments)
+        console.log("user bilgileri=> ", user && user?.uid)
         if(comments.length > 0){
-            const commsEl = comments.map((comm, i)=>{
+            const commsEl = comments
+            .sort((a,b)=>b.commentScore-a.commentScore)
+            .map(comm=>{
                 console.log("comm[i].commentScore:", comm.uId)
                 return (<Comment
                     key={comm.Id}
@@ -83,6 +86,8 @@ export default function Home(){
                     uId={comm.uId}
                     comment={comm.comment}
                     commentId={comm.Id}
+                    loginUserId={user && user?.uid}
+                    catId={todaysCat.Id}
                     />)
             })
             console.log("çıktı:", commsEl)
@@ -109,7 +114,7 @@ export default function Home(){
                     </div>
                 </div>
                 <div className="footer">
-                    &copy; 2023 Caption Cat · <a href="https://github.com/emrecoban/caption-cat" target="_blank">GitHub</a>
+                    &copy; 2023 Caption Meow · <a href="https://github.com/emrecoban/caption-cat" target="_blank">GitHub</a>
                 </div>
             </aside>
             <div className="content">

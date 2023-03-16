@@ -5,7 +5,7 @@ import {
     useUpdatePassword,
     useUpdateProfile 
 } from 'react-firebase-hooks/auth';
-import { reAuth } from "../services/users";
+import { reAuth, userDBUpdate } from "../services/users";
 
 
 export default function Settings() {
@@ -27,8 +27,9 @@ export default function Settings() {
     async function handleProfile(e){
         e.preventDefault()
         const success = await updateProfile({ displayName: profile });
-        if(success){
-            setProfileRes(true)
+        const dbUpdate = await userDBUpdate(profile)
+        if(success && dbUpdate){
+                setProfileRes(true)
         }
     }
 
@@ -74,7 +75,7 @@ export default function Settings() {
                     }
 
                     {
-                        profileRes ? ( <p style={{textAlign: 'center'}}>✅ Updated your profile!</p> ) : (
+                        (!updating && profileRes) ? ( <p style={{textAlign: 'center'}}>✅ Updated your profile!</p> ) : (
                             <button
                                 disabled={updating}
                             >

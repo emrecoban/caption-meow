@@ -32,6 +32,8 @@ header{
     -webkit-box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.18);
     -moz-box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.18);
     box-shadow: 0px 10px 14px -10px rgba(0,0,0,0.18);
+    position: relative;
+    z-index:2;
 }
 
 @media screen and (max-width: 640px) {
@@ -219,10 +221,31 @@ aside > .footer {
     font-size:14px;
 }
 
+.content > .comments > .comment > .scoreNoLogin {
+    background-color: #FEE8EB;
+    color:#000;
+    padding: 5px;
+    border-radius: 25%;
+    border:0;
+}
+
 .content > .comments > .comment > .commentScore {
     background-color: #FEE8EB;
     padding: 5px;
     border-radius: 25%;
+    border:0;
+    cursor: pointer;
+}
+
+.content > .comments > .comment > .commentScore:hover {
+    background-color: #db8c38;
+    color:#fff;
+}
+
+.content > .comments > .comment > .commentScore:disabled {
+    background-color: #db8c38;
+    color:#fff;
+    cursor: default;
 }
 
 .content > .comments > .comment > .displayName {
