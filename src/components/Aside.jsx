@@ -13,7 +13,7 @@ export default function Aside(){
                     </div>
                 </div>
                 <div className="footer">
-                    &copy; 2023 Caption Meow · <a href="https://github.com/emrecoban/caption-cat" target="_blank">GitHub</a>
+                    &copy; 2023 Caption Meow · <a href="https://github.com/emrecoban/caption-meow" target="_blank">GitHub</a>
                 </div>
             </aside>
     )
