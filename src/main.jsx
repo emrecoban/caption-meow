@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
+import Wall from './pages/Wall';
 import Settings from './pages/Settings';
 import Login, {action as loginAction} from './pages/Login';
 import Signup, {action as signupAction} from './pages/Signup';
@@ -19,6 +20,7 @@ const mainRouter = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<Layout/>}>
       <Route path='*' element={<Home />}/>
       <Route index element={<Home />}/>
+      <Route path='wall' element={<Wall />}/>
       <Route 
             path='settings' 
             element={

@@ -36,12 +36,25 @@ header{
     z-index:2;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 725px) {
     header{
         justify-content: center;
         height: auto;
         padding:15px 15px;
     }
+    header > nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    header > nav > * {
+        flex-basis: calc(33%);
+        flex-grow: 0;
+        margin:5px;
+      }
+      
+      header > nav > *:only-child {
+        flex-basis: 100%;
+      }
 }
 
 header > h3 {
@@ -302,3 +315,27 @@ aside > .footer {
     background-color: #FF3F45;
     color:#FEE8EB;
 }
+
+/* Wall Page */
+#honors {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+  
+  #honors td, #honors th {
+    
+    padding: 8px;
+  }
+  
+  #honors tr:nth-child(even){background-color: #f9f7f7;}
+  
+  #honors tr:hover {background-color: #e4e4e4;}
+  
+  #honors th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #db8c38;
+    color: white;
+  }

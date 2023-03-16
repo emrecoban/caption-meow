@@ -35,7 +35,7 @@ export default function Header(){
             <h3>Caption Meow</h3>
             <nav>
                 <Link to="/">🚀 Today's Cat</Link>
-                <Link to="">🏆 Top Ten</Link>
+                <Link to="/wall">🏆 Wall of Honor</Link>
                 {
                     loginControl()
                 }

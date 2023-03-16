@@ -2,6 +2,7 @@ import React from "react";
 import { getDoc } from "firebase/firestore";
 import { getVotes, voteComment } from "../services/votes";
 import { commentScore } from "../services/comments";
+import { userScoreUp } from "../services/users";
 
 export default function Comment({
     score, 
@@ -47,6 +48,7 @@ export default function Comment({
 
     async function voteComm(){
         setIsDisabled(true)
+        await userScoreUp(uId.id)
         await commentScore(commentId)
         await voteComment(catId, loginUserId, commentId)
         handleVotes()

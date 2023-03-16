@@ -10,8 +10,15 @@ import {
 } from "firebase/auth";
 import { 
     doc, 
+    increment, 
     setDoc,
-    updateDoc 
+    updateDoc,
+    query,
+    limit,
+    where,
+    collection,
+    orderBy,
+    getDocs
 } from "firebase/firestore";
 
 
@@ -46,28 +53,27 @@ export async function reAuth(currPass){
 }
 
 export async function userDBUpdate(name){
-    const update = await updateDoc(
+    await updateDoc(
         doc(db, "users", auth.currentUser.uid), 
         { displayName: name }
     )
     return true
 }
 
-/* export async function updateUser({displayName}){
-    const success = await updateProfile(auth.currentUser, {displayName})
-    return success
+export async function userScoreUp(userId){
+    await updateDoc(
+        doc(db, "users", userId), 
+        { score: increment(1) }
+    )
 }
 
-export async function updatePass(newPass){
-    const success = await updatePassword(auth.currentUser, newPass)
-    return success
-} */
-
-/* export const getUser = () => {
-    if(auth.currentUser === null) return
-    const { currentUser } = auth
-    return {
-        email: currentUser.email,
-        verified: currentUser.verified
-    }
-} */
+export async function getUsers(){
+    const q = query(
+        collection(db, "users"),
+        where("score", ">", 1),
+        orderBy("score", "desc"),
+        limit(30)
+    )
+    const querySnapshot = await getDocs(q)
+    return querySnapshot
+}
