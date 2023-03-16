@@ -1,4 +1,4 @@
-# Caption Meow
+# 🐱 Caption Meow
 Caption Meow is an **open-source** MIT-licensed social media for cat lovers!
 
 ## Preview
