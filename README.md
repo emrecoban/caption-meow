@@ -15,7 +15,7 @@ Coming soon...
 
 ## Support
 - Give a star to this repo.
-- Upvote on [ProductHunt](https://www.producthunt.com/posts/twitter-note).
+- Upvote on [ProductHunt](#).
 - Follow me on Twitter [@emreshepherd](https://twitter.com/emreshepherd), or GitHub [@emrecoban](https://github.com/emrecoban).
 - Buy me a coffee, or book: https://www.buymeacoffee.com/emrecoban
 
