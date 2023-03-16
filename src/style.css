@@ -59,6 +59,8 @@ header > nav {
     width: 25px;
     height: 25px;
     animation: spin 2s linear infinite;
+    margin-left:auto;
+    margin-right: auto;
 }
 
 @keyframes spin {
@@ -178,7 +180,12 @@ aside > .footer {
     gap:15px;
     margin-left: 350px;
     padding: 25px;
-    max-width: 700px;
+    width: 700px;
+}
+
+.content > .todaysCat{
+    border: 8px solid #db8c38;
+    max-width: 100%;
 }
 
 .content > .catSource {
@@ -187,6 +194,7 @@ aside > .footer {
 }
 
 .content > .comments {
+    max-width: 100%;
     padding:10px 20px;
     border: 1px solid #db8c38;
     display: flex;
@@ -236,11 +244,6 @@ aside > .footer {
     }
 }
 
-.content > .todaysCat{
-    border: 8px solid #db8c38;
-    max-width: 100%;
-}
-
 @media screen and (max-width: 800px) {
     aside{
         display: none;
@@ -249,4 +252,30 @@ aside > .footer {
         margin-left:0;
         padding:25px
     }
+}
+
+.putComment {
+    margin-top:10px;
+}
+
+.putComment input[type="text"] {
+    width: 83%;
+    border:1px solid #FF3F45;
+    height: 30px;
+    padding: 10px;
+    outline: 0;
+}
+
+.putComment button {
+    width: 17%;
+    background-color: #FEE8EB;
+    font-weight: bold;
+    border:1px solid #FF3F45;
+    height: 30px;
+    cursor: pointer;
+}
+
+.putComment button:hover {
+    background-color: #FF3F45;
+    color:#FEE8EB;
 }
