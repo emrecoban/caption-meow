@@ -20,7 +20,7 @@ Caption Meow can be used through the website address [captionmeow.vercel.app](ht
  - Leaderboard: Users can view the top-rated captions.
 
 ## Screenshots
-Coming soon...
+![Caption Meow Homepage](github_assets/ss_1.png)
 
 ## Contributing
 Bug reports, feature requests, and pull requests are welcome. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
