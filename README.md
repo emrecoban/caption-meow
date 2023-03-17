@@ -22,6 +22,77 @@ Caption Meow can be used through the website address [captionmeow.vercel.app](ht
 ## Screenshots
 ![Caption Meow Homepage](github_assets/ss_1.png)
 
+## Directory Structure
+```bash
+├── public
+│   └── images
+├── src
+│   ├── components
+│   │   ├── Aside.jsx
+│   │   ├── Comment.jsx
+│   │   ├── Header.jsx
+│   │   ├── HonorUser.jsx
+│   │   └── Layout.jsx
+│   ├── context
+│   │   ├── AfterLoginProvider.jsx
+│   │   └── AuthProvider.jsx
+│   ├── pages
+│   │   ├── Home.jsx
+│   │   ├── Login.jsx
+│   │   ├── Settings.jsx
+│   │   ├── Signup.jsx
+│   │   └── Wall.jsx
+│   ├── services
+│   │   ├── cats.js
+│   │   ├── comments.js
+│   │   ├── firebase.js
+│   │   ├── users.js
+│   │   └── votes.js
+│   ├── main.jsx
+│   └── style.css
+├── README.md
+├── vercel.json
+└── vite.config.js
+```
+- `public`: This folder contains static assets such as images used in the project.
+- `src`: This is the main source code folder for the project.
+  - `components`: This folder contains React components that can be used throughout the application, such as `Aside`, `Comment`, `Header`, `HonorUser`, and `Layout`.
+  - `context`: This folder contains React context providers for managing state and passing data down the component tree, including `AfterLoginProvider` and `AuthProvider`.
+  - `pages`: This folder contains the main pages of the application, including `Home`, `Login`, `Settings`, `Signup`, and `Wall`.
+  - `services`: This folder contains JavaScript modules that provide functionality for communicating with external services or APIs, such as `cats`, `comments`, `firebase`, `users`, and `votes`.
+  - `main.jsx`: This is the main entry point for the application.
+  - `style.css`: This is the main stylesheet for the application.
+- `README.md`: This is the README file that provides information about the project.
+- `vercel.json`: This file contains configuration settings for deploying the project to the [Vercel](https://vercel.app) platform.
+- `vite.config.js`: This file contains configuration settings for the [Vite](https://vitejs.dev/) development server.
+
+## Installation
+1. Clone the repository to your local machine:
+```bash
+  git clone https://github.com/emrecoban/caption-meow.git
+```
+
+2. Navigate to the project directory:
+```bash
+  cd caption-meow
+```
+
+3. Install the dependencies using `npm`:
+```bash
+  npm install
+  npm i react-router-dom
+  npm i firebase
+  npm i react-firebase-hooks
+```
+
+4. Start the development server:
+```bash
+  npm run dev
+```
+5. Open your web browser and go to [http://localhost:5173](http://localhost:5173) to view the application.
+
+That's it! You should now have the project running locally on your machine. If you encounter any issues, be sure to check the project's documentation and issue tracker on GitHub.
+
 ## Contributing
 Bug reports, feature requests, and pull requests are welcome. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
 
