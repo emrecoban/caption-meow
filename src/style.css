@@ -47,7 +47,7 @@ header{
         justify-content: center;
     }
     header > nav > * {
-        flex-basis: calc(33%);
+        flex-basis: calc(35%);
         flex-grow: 0;
         margin:5px;
       }
@@ -295,7 +295,7 @@ aside > .footer {
 }
 
 .putComment input[type="text"] {
-    width: 83%;
+    width: 81%;
     border:1px solid #FF3F45;
     height: 30px;
     padding: 10px;
@@ -303,7 +303,7 @@ aside > .footer {
 }
 
 .putComment button {
-    width: 17%;
+    width: 19%;
     background-color: #FEE8EB;
     font-weight: bold;
     border:1px solid #FF3F45;

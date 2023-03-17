@@ -2,7 +2,8 @@ import React from "react";
 import { addComment, getComments } from "../services/comments";
 import { getLastCat } from "../services/cats";
 import { auth } from '../services/firebase';
-import { useAuthState } from 'react-firebase-hooks/auth'; 
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link } from 'react-router-dom';
 import Comment from '../components/Comment';
 import Aside from "../components/Aside";
 
@@ -117,6 +118,9 @@ export default function Home(){
                 <div className="comments">
                     {
                         loading && (<div className="loader"></div>)
+                    }
+                    {
+                        !user && <p>🌟 Wanna post a funny caption? Log in first! <Link to="/login">Click here</Link>.</p>
                     }
                     {
                         user && commentControl && (
