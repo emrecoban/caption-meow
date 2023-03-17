@@ -6,6 +6,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 export default function Header(){
     const [user, loading, error] = useAuthState(auth);
+    const [showMenu, setShowMenu] = React.useState(false)
 
     const logout = () => {
         signOut(auth);
@@ -29,18 +30,29 @@ export default function Header(){
         }
         return <Link to="/login">🔐 Log-in</Link>
     }
+
+    function isDisplay(){
+        setShowMenu(!showMenu)
+        console.log("MENÜ GSÖTERİMİ: ", showMenu)
+    }
+
     return (
         <header>
-            <img src="/images/cat.svg" height="40" />
-            <h3>Caption Meow</h3>
-            <nav>
-                <Link to="/">🚀 Today's Cat</Link>
-                <Link to="/wall">🏆 Wall of Honor</Link>
-                {
-                    loginControl()
-                }
-                
-            </nav>
+            <div className="captionLogo">
+                <img src="/images/cat.svg" height="40" />
+                <h3>Caption Meow</h3>
+            </div>
+            <div className="headerMenu">
+                <nav className={showMenu ? "show" : "hide"}>
+                    <Link to="/">🚀 Today's Cat</Link>
+                    <Link to="/wall">🏆 Wall of Honor</Link>
+                    {
+                        loginControl()
+                    }
+                    
+                </nav>
+                <img className="burgerMenu" src="/images/burger_menu_icon.svg" onClick={isDisplay} />
+            </div>
         </header>
     )
 }
