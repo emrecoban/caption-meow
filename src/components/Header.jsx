@@ -39,8 +39,10 @@ export default function Header(){
     return (
         <header>
             <div className="captionLogo">
-                <img src="/images/cat.svg" height="40" />
-                <h3>Caption Meow</h3>
+                <Link to="/">
+                    <img src="/images/cat.svg" height="40" />
+                    <h3>Caption Meow</h3>
+                </Link>
             </div>
             <div className="headerMenu">
                 <nav className={showMenu ? "show" : "hide"}>

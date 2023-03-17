@@ -36,14 +36,14 @@ header{
     z-index:2;
 }
 
-.captionLogo{
+.captionLogo a{
     display: flex;
     align-items: center;
     gap:10px;
     margin-top:5px;
 }
 
-.captionLogo > h3 {
+.captionLogo  h3 {
     color:#db8c38;
 }
 
