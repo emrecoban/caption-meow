@@ -16,8 +16,8 @@ Caption Meow can be used through the website address [captionmeow.vercel.app](ht
 ## Features
  - User Authentication: Users can register, login, and update their profiles.
  - Caption Voting: Users can vote for their favorite captions.
- - Post Caption: Users can post funny captions for images.
- - Leaderboard: Users can view the top-rated captions.
+ - Post Caption: Users can post funny captions for cat images.
+ - Leaderboard: Lists users with the most points and can be viewed by everyone.
 
 ## Screenshots
 ![Caption Meow Homepage](github_assets/ss_1.png)
