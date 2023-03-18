@@ -1,12 +1,18 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { signOut } from "firebase/auth";
 import { auth } from '../services/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 export default function Header(){
+    const location = useLocation()
     const [user, loading, error] = useAuthState(auth);
     const [showMenu, setShowMenu] = React.useState(false)
+
+    // Close the mobile menu if the page changed.
+    React.useEffect(()=>{
+        setShowMenu(false)
+    }, [location.pathname])
 
     const logout = () => {
         signOut(auth);
@@ -17,7 +23,7 @@ export default function Header(){
             return <div className="loader"></div>
         }
         if(error){
-            console.log("useAuthState (react-firebase-hooks) gelen hata => ", error)
+            console.log("useAuthState (react-firebase-hooks) came an error => ", error)
             return ""
         }
         if(user){
@@ -29,11 +35,6 @@ export default function Header(){
             )
         }
         return <Link to="/login">🔐 Log-in</Link>
-    }
-
-    function isDisplay(){
-        setShowMenu(!showMenu)
-        console.log("MENÜ GSÖTERİMİ: ", showMenu)
     }
 
     return (
@@ -53,7 +54,7 @@ export default function Header(){
                     }
                     
                 </nav>
-                <img className="burgerMenu" src="/images/burger_menu_icon.svg" onClick={isDisplay} />
+                <img className="burgerMenu" src="/images/burger_menu_icon.svg" onClick={()=>setShowMenu(!showMenu)} />
             </div>
         </header>
     )

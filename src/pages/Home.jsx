@@ -110,7 +110,7 @@ export default function Home(){
                 {
                     !todaysCat ? (<div className="loader"></div>) : (
                         <>
-                        <img className="todaysCat" src={todaysCat.imgSrc} />
+                        <img className="todaysCat" src={todaysCat.imgSrc} alt="Today's Cat" loading="lazy" />
                         <p className="catSource"><b>Source: </b> <a href={todaysCat.sourceLink} target="_blank">{todaysCat.source}</a></p> 
                         </>
                     ) 
