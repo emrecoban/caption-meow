@@ -261,9 +261,11 @@ aside > .footer {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    margin-top: 10px;
     margin-bottom: 10px;
     border-bottom: 1px solid #f5d9bb;
     padding-bottom:10px;
+    padding-left:5px;
   }
   
 .comment:last-child {
