@@ -120,7 +120,7 @@ export default function Home(){
                         loading && (<div className="loader"></div>)
                     }
                     {
-                        !user && <p>🌟 Wanna post a funny caption? Log in first! <Link to="/login">Click here</Link>.</p>
+                        !user && <p style={{fontSize: '14px'}}>🌟 Wanna post a funny caption? Log in first! <Link to="/login">Click here</Link>.</p>
                     }
                     {
                         user && commentControl && (

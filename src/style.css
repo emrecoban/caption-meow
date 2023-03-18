@@ -120,25 +120,7 @@ header{
     .headerMenu > .show{
         display: block;
     }
-    
-/*     header{
-        justify-content: center;
-        height: auto;
-        padding:15px 15px;
-    }
-    header > nav {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    header > nav > * {
-        flex-basis: calc(35%);
-        flex-grow: 0;
-        margin:5px;
-      }
-      
-      header > nav > *:only-child {
-        flex-basis: 100%;
-      } */
+
 }
 
 
@@ -275,7 +257,94 @@ aside > .footer {
     gap: 0;
 }
 
-.content > .comments > .comment {
+.comment {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #f5d9bb;
+    padding-bottom:10px;
+  }
+  
+.comment:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+  }
+  
+.comment > .comment-score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    width: 35px;
+    border-radius: 8px;
+  }
+  
+.comment-score > .vote-button {
+    background-color: #FEE8EB;
+    border:0;
+    cursor: pointer;
+    outline: none;
+    padding-bottom:10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+.comment-score > .vote-button:hover {
+    background-color: #db8c38;
+    color:#fff;
+  }
+  
+.comment-score > .vote-button:disabled {
+    background-color: #db8c38;
+    color:#fff;
+    cursor: default;
+  }
+
+.comment-score > .scoreNoLogin {
+    background-color: #FEE8EB;
+    color:#000;
+    border:0;
+    outline: none;
+    padding-bottom:10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+.vote-icon {
+    font-size: 24px;
+  }
+  
+.vote-count {
+    font-size: 15px;
+  }
+  
+.comment > .comment-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+.comment > .comment-details > .user-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+.comment > .comment-details > .user-comment {
+    margin-top:0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+
+/* .content > .comments > .comment {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -321,7 +390,7 @@ aside > .footer {
 
 .content > .comments > .comment > .displayName {
     font-weight: bold;
-}
+} */
 
 @media screen and (max-width: 1055px) {
     aside {

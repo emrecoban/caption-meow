@@ -61,7 +61,26 @@ export default function Comment({
     }
 
     return (
-        <div className="comment">
+        <div class="comment">
+            <div class="comment-score">
+                <button
+                className={loginUserId ? "vote-button" : "scoreNoLogin"}
+                onClick={voteComm}
+                disabled={votes.some(vote=>vote.userId === loginUserId) || isDisabled || !loginUserId}
+                >
+                <span class="vote-icon">🔺</span>
+                <span class="vote-count">{votes.length}</span>
+                </button>
+            </div>
+            <div class="comment-details">
+                <p class="user-name">{userData?.displayName}:</p>
+                <p class="user-comment">{comment}</p>
+            </div>
+        </div>
+    )
+}
+
+{/* <div className="comment">
             <button
             className={loginUserId ? "commentScore" : "scoreNoLogin"}
             onClick={voteComm}
@@ -69,6 +88,4 @@ export default function Comment({
              >🔺{votes.length}</button>
             <p className="displayName">{userData?.displayName}:</p>
             <p className="userComment">{comment}</p>
-        </div>
-    )
-}
+        </div> */}
