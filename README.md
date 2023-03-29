@@ -97,8 +97,9 @@ That's it! You should now have the project running locally on your machine. If y
 Bug reports, feature requests, and pull requests are welcome. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
 
 ## Support
+- Sponsor to me on GitHub.
 - Give a star to this repo.
-- Upvote on [ProductHunt](#).
+- Upvote on [ProductHunt](https://www.producthunt.com/posts/caption-meow).
 - Follow me on Twitter [@emreshepherd](https://twitter.com/emreshepherd), or GitHub [@emrecoban](https://github.com/emrecoban).
 - Buy me a coffee, or book: https://www.buymeacoffee.com/emrecoban
 
