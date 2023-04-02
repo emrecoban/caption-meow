@@ -8,7 +8,7 @@ const firebaseConfig = {
   projectId: "caption-cat",
   storageBucket: "caption-cat.appspot.com",
   messagingSenderId: "755255591044",
-  appId: "1:755255591044:web:945a17b95ebf403a2cc2d1"
+  appId: "1:755255591044:web:945a17b95ebf403a2cc2d1",
 };
 
 const app = initializeApp(firebaseConfig);
