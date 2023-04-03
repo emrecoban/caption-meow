@@ -35,3 +35,19 @@ export async function commentScore(commId) {
     commentScore: increment(1),
   });
 }
+
+// for Promise.all at the Home page
+export async function getAllComments(){
+  const querySnapshot = await getDocs(collection(db, "comments"));
+  const comments = [];
+  querySnapshot.forEach((comment) => {
+    comments.push({
+      Id: comment.id,
+      uId: comment.data().uId.id,
+      comment: comment.data().comment,
+      commentScore: comment.data().commentScore,
+      catRef: comment.data().catRef.id,
+    })
+  });
+  return comments;
+}

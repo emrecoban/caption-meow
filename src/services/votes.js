@@ -26,3 +26,19 @@ export async function getVotes(commId) {
   const querySnapshot = await getDocs(q);
   return querySnapshot;
 }
+
+// for Promise.all at the Home page
+export async function getAllVotes(){
+  const querySnapshot = await getDocs(collection(db, "votes"));
+  const votes = [];
+  querySnapshot.forEach((vote) => {
+    votes.push({
+      Id: vote.id,
+      catId: vote.data().catId.id,
+      commId: vote.data().commId.id,
+      userId: vote.data().userId.id,
+      zaman: vote.data().zaman,
+    })
+  });
+  return votes;
+}

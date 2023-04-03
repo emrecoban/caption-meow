@@ -80,3 +80,18 @@ export async function getUsers() {
   const querySnapshot = await getDocs(q);
   return querySnapshot;
 }
+
+// for Promise.all at the Home page
+export async function getAllUsers(){
+  const querySnapshot = await getDocs(collection(db, "users"));
+  const users = [];
+  querySnapshot.forEach((user) => {
+    users.push({
+      Id: user.id,
+      displayName: user.data().displayName,
+      email: user.data().email,
+      score: user.data().score,
+    })
+  });
+  return users;
+}

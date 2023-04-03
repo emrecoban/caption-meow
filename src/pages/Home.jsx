@@ -1,18 +1,19 @@
 import React from "react";
-import { addComment, getComments } from "../services/comments";
+import { addComment, getAllComments, getComments } from "../services/comments";
 import { getLastCat } from "../services/cats";
 import { auth } from "../services/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import Comment from "../components/Comment";
 import Aside from "../components/Aside";
+import { getAllVotes } from "../services/votes";
+import { getAllUsers } from "../services/users";
 
 export default function Home() {
   const [user, loading, error] = useAuthState(auth);
   const [newCaption, setNewCaption] = React.useState("");
   const [todaysCat, setTodaysCat] = React.useState(false);
   const [comments, setComments] = React.useState([]);
-  const [commentsEl, setCommentsEl] = React.useState([]);
   const [commentControl, setcommentControl] = React.useState(true);
   const [loader, setLoader] = React.useState(true);
 
@@ -35,7 +36,6 @@ export default function Home() {
 
   async function handleComments() {
     setComments([]);
-    setCommentsEl([]);
     const commentsCat = await getComments(todaysCat.Id);
     commentsCat.forEach((comment) => {
       comment.data().uId.id === user?.uid && setcommentControl(false);
@@ -75,6 +75,34 @@ export default function Home() {
         />
       ));
   }, [comments]);
+  
+  // PROMISE ALL --- START
+/*   const [comments_, setComments_] = React.useState([])
+  const [users_, setUsers_] = React.useState([])
+  const [votes_, setVotes_] = React.useState([])
+
+  React.useEffect(()=>{
+    Promise.all([getAllComments(), getAllUsers(), getAllVotes()])
+    .then(([commentsData, usersData, votesData])=>{
+      setComments_(commentsData)
+      setUsers_(usersData)
+      setVotes_(votesData)
+    }).catch((error)=>{
+      console.log("Veriler gelirken hata meydana geldi: ", error)
+    })
+  },[])
+
+  React.useEffect(()=>{
+    console.log("İşte verilerin tamamı => ", comments_, users_, votes_)
+
+    // "(9 Oy) - nickname: yorum" şeklinde göster:
+    comments_.map((comment)=>{
+      const user = users_.find((user) => user.Id === comment.uId);
+      const votes = votes_.filter((vote) => vote.commId === comment.Id);
+      console.log("YORUM => ", votes.length, user.displayName, comment.comment)
+    })
+  }, [comments_, users_, votes_]) */
+  // PROMISE ALL --- END
 
   return (
     <main>
