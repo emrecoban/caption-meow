@@ -21,6 +21,7 @@ Caption Meow can be used through the website address [captionmeow.vercel.app](ht
 
 ## Screenshots
 ![Caption Meow Homepage](github_assets/ss_1.png)
+![Caption Meow Wall of Honor](github_assets/ss_2.png)
 
 ## Directory Structure
 ```bash
