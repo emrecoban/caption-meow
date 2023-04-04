@@ -23,7 +23,10 @@ Caption Meow can be used through the website address [captionmeow.vercel.app](ht
 ![Caption Meow Homepage](github_assets/ss_1.png)
 
 ## Directory Structure
-<p align="center">![markmap](github_assets/markmap.png)</p>
+
+<img src="github_assets/markmap.png" align="center" alt="markmap" />
+
+
 ```bash
 ├── public
 │   └── images
