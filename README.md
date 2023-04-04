@@ -104,8 +104,9 @@ Bug reports, feature requests, and pull requests are welcome. This project is in
 - React
 - React Router
 - Vite
-- Firebase/Authentication
-- Firebase/Cloud Firestore
+- Firebase
+  - Authentication
+  - Cloud Firestore
 
 ## Support
 - Sponsor to me on GitHub.
