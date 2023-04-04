@@ -91,10 +91,21 @@ Caption Meow can be used through the website address [captionmeow.vercel.app](ht
 ```
 5. Open your web browser and go to [http://localhost:5173](http://localhost:5173) to view the application.
 
+> **Configure Firebase**
+> Don't forget to configure the Firebase Config file (src/services/firebase.js)!
+
 That's it! You should now have the project running locally on your machine. If you encounter any issues, be sure to check the project's documentation and issue tracker on GitHub.
 
 ## Contributing
 Bug reports, feature requests, and pull requests are welcome. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
+
+## Built with
+- JavaScript
+- React
+- React Router
+- Vite
+- Firebase/Authentication
+- Firebase/Cloud Firestore
 
 ## Support
 - Sponsor to me on GitHub.
@@ -104,7 +115,14 @@ Bug reports, feature requests, and pull requests are welcome. This project is in
 - Buy me a coffee, or book: https://www.buymeacoffee.com/emrecoban
 
 ## References
-- Coming soon...
+- [React Router](https://reactrouter.com/en/main)
+- [useContext - React](https://react.dev/reference/react/useContext)
+- [Firebase Authentication on Websites](https://firebase.google.com/docs/auth/web/start?hl=en)
+- [Firebase Cloud Firestore](https://firebase.google.com/docs/firestore/quickstart?hl=en)
+- [Learn React by Bob Ziroll](https://scrimba.com/learn/learnreact)
+- [Learn React Router 6 by Bob Ziroll](https://scrimba.com/learn/reactrouter6)
+- [Building Full Stack App by Tadnology](https://www.youtube.com/watch?v=KJYwdWZv98A)
+- [Source of Inspiration: Caption Cat](https://www.producthunt.com/products/caption-cat)
 
 ## License
 The Caption Meow is available as open source under the terms of the [MIT License](https://github.com/emrecoban/caption-meow/blob/main/LICENSE).
