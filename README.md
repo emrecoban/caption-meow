@@ -110,6 +110,10 @@ Bug reports, feature requests, and pull requests are welcome. This project is in
   - Authentication
   - Cloud Firestore
 
+## Press
+- Caption Meow has been featured in the weekly Scrimba newsletter.
+![scrimba-newsletter](./github_assets/scrimba.png)
+
 ## Support
 - Sponsor to me on GitHub.
 - Give a star to this repo.
