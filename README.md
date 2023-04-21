@@ -55,7 +55,8 @@ Caption Meow can be used through the website address [captionmeow.vercel.app](ht
 ├── vercel.json
 └── vite.config.js
 ```
-![Markmap](github_assets/markmap_2.png){style="display: block; margin: 0 auto" }
+<p align="center"><img alt="markmap" src="github_assets/markmap_2.png" /></p>
+
 - `public`: This folder contains static assets such as images used in the project.
 - `src`: This is the main source code folder for the project.
   - `components`: This folder contains React components that can be used throughout the application, such as `Aside`, `Comment`, `Header`, `HonorUser`, and `Layout`.
